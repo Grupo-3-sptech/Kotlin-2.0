@@ -118,11 +118,8 @@ class LookaDados {
     INSERT INTO RoboCirurgiao (modelo, fabricacao, fkStatus, idProcess, fkHospital) 
     VALUES ('Modelo A', '${looca.processador.fabricante}', 1, '$id', $fkHospital)
 """.trimIndent()
-<<<<<<< HEAD
         )
-=======
-        )   
->>>>>>> 677a7f79c1301175e9233139ab152a8c5df7389d
+
         println("parabéns robo cadastrado baixando agora a solução MEDCONNECT")
 
 
@@ -303,28 +300,24 @@ class LookaDados {
             //"""
             //)
 
+    //                bdInter.execute(
+      //                  """
+        //    INSERT INTO dispositivos_usb (nome, dataHora, id_produto, fornecedor, conectado, fkRoboUsb)
+          //  VALUES ('$nome', '${LocalDateTime.now()}', '$idProduto', '$fornecedor', 1, $idRobo);
+            //"""
+             //       )
 
-<<<<<<< HEAD
-=======
-                    bdInter.execute(
-                        """
-            INSERT INTO dispositivos_usb (nome, dataHora, id_produto, fornecedor, conectado, fkRoboUsb)
-            VALUES ('$nome', '${LocalDateTime.now()}', '$idProduto', '$fornecedor', 1, $idRobo);
-            """
-                    )
-
-                bdInterServer.execute(
-                    """
-            INSERT INTO dispositivos_usb (nome, dataHora, id_produto, fornecedor, conectado, fkRoboUsb)
-            VALUES ('$nome', '${LocalDateTime.now()}', '$idProduto', '$fornecedor', 1, $idRobo);
-            """
-                )
+     //           bdInterServer.execute(
+       //             """
+       //     INSERT INTO dispositivos_usb (nome, dataHora, id_produto, fornecedor, conectado, fkRoboUsb)
+         //   VALUES ('$nome', '${LocalDateTime.now()}', '$idProduto', '$fornecedor', 1, $idRobo);
+           // """
+             //   )
 
 
                 }
->>>>>>> 677a7f79c1301175e9233139ab152a8c5df7389d
         }
-    }
+
 
 
 
@@ -900,7 +893,7 @@ class LookaDados {
                     "server_cursor.close()\n" +
                     "connection.close()\n" +
                     "sqlserver_connection.close()\n" +
-                    "    ")
+                    "    \n")
 
 
         }
