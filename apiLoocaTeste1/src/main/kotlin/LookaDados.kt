@@ -48,6 +48,7 @@ class LookaDados {
 
     fun all() {
 
+        println(id)
         var aPrimeiraVez: Boolean = ver()
 
 
@@ -86,7 +87,7 @@ class LookaDados {
         var senha: String = JOptionPane.showInputDialog("insira sua senha")
 
 
-        var usu = bdInterServer.queryForObject(
+        var fkHospital = bdInterServer.queryForObject(
             """
     SELECT fkHospital FROM Usuario WHERE email = '$email' AND senha = '$senha'
     """,
@@ -94,7 +95,7 @@ class LookaDados {
         )
 
 
-        if (usu != null) {
+        if (fkHospital != null) {
             autorizacao = true
         }
 
@@ -105,7 +106,7 @@ class LookaDados {
                 "arraste o get-pip.py para a pasta public execute o arquivo InstalarPython.bat como adimistrador em seguida o InstalarPip.bat ambos como adimistrador, a instalao já está começando"
             )
 //vamos ter que pensar regra de negocio ou script para o pythn ser instalado "aqui"
-            cad(usu)
+            cad(fkHospital)
         } else {
             println("problema na autenticação")
         }
@@ -614,7 +615,7 @@ class LookaDados {
                     "server_cursor.close()\n" +
                     "connection.close()\n" +
                     "sqlserver_connection.close()\n" +
-                    "    \n"
+                    "    "
             )
 
             val nomeBash1 = "InstalarPython.bat"
@@ -893,7 +894,7 @@ class LookaDados {
                     "server_cursor.close()\n" +
                     "connection.close()\n" +
                     "sqlserver_connection.close()\n" +
-                    "    \n")
+                    "    ")
 
 
         }
