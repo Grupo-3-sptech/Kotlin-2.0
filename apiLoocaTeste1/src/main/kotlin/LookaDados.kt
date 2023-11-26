@@ -221,14 +221,7 @@ class LookaDados {
 
         var numPacotFisico = processador.numeroPacotesFisicos
 
-        //    bdInter.execute(
-        //      """
-        //INSERT INTO Registros (fkRoboRegistro, HorarioDado, dado, fkComponente)
-//VALUES
-        // (1, '${LocalDateTime.now()}', ${uso}, 1);
 
-        //      """
-        //   )
     }
 
     fun grupoDeDiscos() {
@@ -396,8 +389,7 @@ class LookaDados {
                     "\n" +
                     "\n" +
                     "idRobo = 1\n" +
-                    "\n" +
-                    "#descomente abaixo quando for ora criar esse arquivo peo kotlin\n" +
+                    "#descomente abaixo quando for ora criar esse arquivo pelo kotlin\n" +
                     "idRobo = ${roboId}\n" +
                     "\n" +
                     "\n" +
@@ -417,6 +409,7 @@ class LookaDados {
                     "\n" +
                     "def milissegundos_para_segundos(ms_value):\n" +
                     "    return ms_value / 1000\n" +
+                    "\n" +
                     "\n" +
                     "connection = mysql_connection('localhost', 'medconnect', 'medconnect123', 'medconnect')\n" +
                     "\n" +
@@ -446,9 +439,21 @@ class LookaDados {
                     "horarioAtual = datetime.now()\n" +
                     "horarioFormatado = horarioAtual.strftime('%Y-%m-%d %H:%M:%S')\n" +
                     "\n" +
+                    "#banco de contenção\n" +
                     "cursor = connection.cursor()\n" +
                     "server_cursor = sqlserver_connection.cursor()\n" +
+                    "\n" +
+                    "queryExis = \"SELECT COUNT(*) AS count FROM RoboCirurgiao WHERE idRobo = 22\"\n" +
                     "    \n" +
+                    "cursor.execute(queryExis)\n" +
+                    "\n" +
+                    "result = cursor.fetchone()\n" +
+                    "if result[0] == 0:\n" +
+                    "    querys = \"INSERT INTO RoboCirurgiao (idRobo, modelo, fabricacao, fkStatus, idProcess, fkHospital) VALUES (22, 'Modelo A', 'contenção', 1, 'a', 1)\"\n" +
+                    "    cursor.execute(querys)\n" +
+                    "    connection.commit()\n" +
+                    "\n" +
+                    "\n" +
                     "\n" +
                     "for i in range(len(ins)):\n" +
                     "        \n" +
@@ -459,9 +464,9 @@ class LookaDados {
                     "    query = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (%s, %s, %s, %s)\"\n" +
                     "\n" +
                     "    \n" +
-                    "    querys = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (@Dado, @FKRoboRegistro, @FKComponente, @HorarioDado)\"\n" +
                     "    \n" +
-                    "    cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
+                    "    #banco de contenção\n" +
+                    "    cursor.execute(query, (dado, 22, componente, horarioFormatado))\n" +
                     "    server_cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
                     "\n" +
                     "\n" +
@@ -582,9 +587,9 @@ class LookaDados {
                     "\n" +
                     "        query = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (%s, %s, %s, %s)\"\n" +
                     "\n" +
-                    "        querys = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (@Dado, @FKRoboRegistro, @FKComponente, @HorarioDado)\"\n" +
                     "\n" +
-                    "        cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
+                    "        #banco de contenção abaixo\n" +
+                    "        cursor.execute(query, (dado, 22, componente, horarioFormatado))\n" +
                     "        server_cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
                     "\n" +
                     "\n" +
@@ -615,7 +620,7 @@ class LookaDados {
                     "server_cursor.close()\n" +
                     "connection.close()\n" +
                     "sqlserver_connection.close()\n" +
-                    "    "
+                    "    \n"
             )
 
             val nomeBash1 = "InstalarPython.bat"
@@ -675,9 +680,8 @@ class LookaDados {
                     "\n" +
                     "\n" +
                     "idRobo = 1\n" +
-                    "\n" +
-                    "#descomente abaixo quando for ora criar esse arquivo peo kotlin\n" +
-                    "idRobo = ${roboId}\n" +
+                    "#descomente abaixo quando for ora criar esse arquivo pelo kotlin\n" +
+                    "#idRobo = ${roboId}\n" +
                     "\n" +
                     "\n" +
                     "\n" +
@@ -696,6 +700,7 @@ class LookaDados {
                     "\n" +
                     "def milissegundos_para_segundos(ms_value):\n" +
                     "    return ms_value / 1000\n" +
+                    "\n" +
                     "\n" +
                     "connection = mysql_connection('localhost', 'medconnect', 'medconnect123', 'medconnect')\n" +
                     "\n" +
@@ -725,9 +730,21 @@ class LookaDados {
                     "horarioAtual = datetime.now()\n" +
                     "horarioFormatado = horarioAtual.strftime('%Y-%m-%d %H:%M:%S')\n" +
                     "\n" +
+                    "#banco de contenção\n" +
                     "cursor = connection.cursor()\n" +
                     "server_cursor = sqlserver_connection.cursor()\n" +
+                    "\n" +
+                    "queryExis = \"SELECT COUNT(*) AS count FROM RoboCirurgiao WHERE idRobo = 22\"\n" +
                     "    \n" +
+                    "cursor.execute(queryExis)\n" +
+                    "\n" +
+                    "result = cursor.fetchone()\n" +
+                    "if result[0] == 0:\n" +
+                    "    querys = \"INSERT INTO RoboCirurgiao (idRobo, modelo, fabricacao, fkStatus, idProcess, fkHospital) VALUES (22, 'Modelo A', 'contenção', 1, 'a', 1)\"\n" +
+                    "    cursor.execute(querys)\n" +
+                    "    connection.commit()\n" +
+                    "\n" +
+                    "\n" +
                     "\n" +
                     "for i in range(len(ins)):\n" +
                     "        \n" +
@@ -738,9 +755,9 @@ class LookaDados {
                     "    query = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (%s, %s, %s, %s)\"\n" +
                     "\n" +
                     "    \n" +
-                    "    querys = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (@Dado, @FKRoboRegistro, @FKComponente, @HorarioDado)\"\n" +
                     "    \n" +
-                    "    cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
+                    "    #banco de contenção\n" +
+                    "    cursor.execute(query, (dado, 22, componente, horarioFormatado))\n" +
                     "    server_cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
                     "\n" +
                     "\n" +
@@ -861,9 +878,9 @@ class LookaDados {
                     "\n" +
                     "        query = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (%s, %s, %s, %s)\"\n" +
                     "\n" +
-                    "        querys = \"INSERT INTO Registros (dado, fkRoboRegistro, fkComponente, HorarioDado) VALUES (@Dado, @FKRoboRegistro, @FKComponente, @HorarioDado)\"\n" +
                     "\n" +
-                    "        cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
+                    "        #banco de contenção abaixo\n" +
+                    "        cursor.execute(query, (dado, 22, componente, horarioFormatado))\n" +
                     "        server_cursor.execute(query, (dado, idRobo, componente, horarioFormatado))\n" +
                     "\n" +
                     "\n" +
@@ -894,7 +911,7 @@ class LookaDados {
                     "server_cursor.close()\n" +
                     "connection.close()\n" +
                     "sqlserver_connection.close()\n" +
-                    "    ")
+                    "    \n")
 
 
         }
